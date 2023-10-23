@@ -1,0 +1,53 @@
+---
+title: "Function 2"
+author: "Congrui Li"
+date: "2023-10-23"
+output: html_document
+---
+
+
+```{r}
+## Load packages
+library(readxl)
+library(tidyverse)
+```
+
+```{r}
+## Import data
+data <- read.csv("/Users/licongrui/Desktop/Graduate/ds1/Lab2Group9/DRG_data.csv")
+```
+
+```{r}
+## Define the function
+f2 <- function(data,statistics){
+  ## Assign different number to indicate the location of the statistics
+  if(statistics == "mean"){
+    i <- 2
+  }else if(statistics == "medium"){
+    i <- 3
+  }else{
+    i <- 4
+  }
+  da1 <- data %>%
+    ## Calculate the mean, medium, and standard deviation of each group
+    group_by(DRG.Definition) %>%
+    summarise(mean = mean(Average.Medicare.Payments),
+              medium = median(Average.Medicare.Payments),
+              standard_deviation  = sd(Average.Medicare.Payments))
+  ## return the statistics that we choose  
+  return(da1[,c(1,i)])
+}
+```
+
+
+```{r}
+## Test the function
+f2(data,"satand deviation")
+f2(data,"mean")
+f2(data,"medium")
+```
+
+```{r}
+
+```
+
