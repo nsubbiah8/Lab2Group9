@@ -26,6 +26,7 @@ data <- read.csv("/Users/nandita/Desktop/DataScience/Lab2Group9/Lab2Group9/data/
 
 ```{r}
 # Function 1
+
 payment <- function(output_type)
 {
   # Group by each of the three categories
