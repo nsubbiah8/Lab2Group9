@@ -19,6 +19,7 @@ library(readr)
 library(here)
 library(dplyr)
 library(ggplot2)
+library(tidyverse)
 
 # Read in data to dataframe
 data <- read.csv("/Users/nandita/Desktop/DataScience/Lab2Group9/Lab2Group9/data/DRG_data.csv")
@@ -52,5 +53,25 @@ payment <- function(output_type)
   }
   
   
+}
+
+## Define the function 2
+f2 <- function(data,statistics){
+  ## Assign different number to indicate the location of the statistics
+  if(statistics == "mean"){
+    i <- 2
+  }else if(statistics == "medium"){
+    i <- 3
+  }else{
+    i <- 4
+  }
+  da1 <- data %>%
+    ## Calculate the mean, medium, and standard deviation of each group
+    group_by(DRG.Definition) %>%
+    summarise(mean = mean(Average.Medicare.Payments),
+              medium = median(Average.Medicare.Payments),
+              standard_deviation  = sd(Average.Medicare.Payments))
+  ## return the statistics that we choose  
+  return(da1[,c(1,i)])
 }
 ```
