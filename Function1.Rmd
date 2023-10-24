@@ -1,0 +1,55 @@
+---
+title: "Function1"
+output: html_document
+date: "2023-10-23"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library(readr)
+library(here)
+library(dplyr)
+library(ggplot2)
+
+# Read in data to dataframe
+data <- read.csv("/Users/nandita/Desktop/DataScience/Lab2Group9/Lab2Group9/data/DRG_data.csv")
+```
+
+```{r}
+# Function 1
+payment <- function(output_type)
+{
+  # Group by each of the three categories
+  medicare <- data %>% group_by(DRG.Definition) %>% summarise(mean = mean(Average.Medicare.Payments))
+  total_payment <- data %>% group_by(DRG.Definition) %>% summarise(mean = mean(Average.Total.Payments))
+  covered_charges <- data %>% group_by(DRG.Definition) %>% summarise(mean = mean(Average.Covered.Charges))
+  
+  
+  # Check which category the user wants to plot
+  if (output_type == "medicare"){
+    
+    # Plot it
+    p <- ggplot(medicare, aes(x=DRG.Definition, y=mean)) + geom_boxplot() + xlab("DRG Codes") + ylab("Average Medicare Payment (in dollars)") + ggtitle("Average Medicare Payment by DRG Code")
+    print(p)
+  }
+  else if (output_type == "total_payment"){
+    p <- ggplot(total_payment, aes(x=DRG.Definition, y=mean)) + geom_boxplot() + xlab("DRG Codes") + ylab("Average Total Payment (in dollars)") + ggtitle("Average Total Payment by DRG Code")
+    print(p)
+  }
+  else{
+    p <- ggplot(covered_charges, aes(x=DRG.Definition, y=mean)) + geom_boxplot() + xlab("DRG Codes") + ylab("Average Covered Charges (in dollars)") + ggtitle("Average Covered Charges by DRG Code")
+    print(p)
+  }
+  
+  
+}
+```
