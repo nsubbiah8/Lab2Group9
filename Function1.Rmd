@@ -51,7 +51,8 @@ payment <- function(output_type)
       geom_boxplot() + 
       xlab("DRG Codes") + 
       ylab("Average Medicare Payment (in dollars)") + 
-      ggtitle("Average Medicare Payment by DRG Code")
+      ggtitle("Average Medicare Payment by DRG Code") +
+      theme(plot.title = element_text(hjust = 0.5))
     print(p)
   }
   else if (output_type == "total_payment"){
@@ -60,7 +61,8 @@ payment <- function(output_type)
       geom_boxplot() + 
       xlab("DRG Codes") + 
       ylab("Average Total Payment (in dollars)") + 
-      ggtitle("Average Total Payment by DRG Code")
+      ggtitle("Average Total Payment by DRG Code") +
+      theme(plot.title = element_text(hjust = 0.5))
     print(p)
   }
   else{
@@ -69,7 +71,8 @@ payment <- function(output_type)
       geom_boxplot() + 
       xlab("DRG Codes") + 
       ylab("Average Covered Charges (in dollars)") + 
-      ggtitle("Average Covered Charges by DRG Code")
+      ggtitle("Average Covered Charges by DRG Code") +
+      theme(plot.title = element_text(hjust = 0.5))
     print(p)
   }
   
