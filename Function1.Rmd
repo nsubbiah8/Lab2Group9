@@ -31,24 +31,45 @@ data <- read.csv("/Users/nandita/Desktop/DataScience/Lab2Group9/Lab2Group9/data/
 payment <- function(output_type)
 {
   # Group by each of the three categories
-  medicare <- data %>% group_by(DRG.Definition) %>% summarise(mean = mean(Average.Medicare.Payments))
-  total_payment <- data %>% group_by(DRG.Definition) %>% summarise(mean = mean(Average.Total.Payments))
-  covered_charges <- data %>% group_by(DRG.Definition) %>% summarise(mean = mean(Average.Covered.Charges))
+  medicare <- data %>% 
+    group_by(DRG.Definition) %>% 
+    summarise(mean = mean(Average.Medicare.Payments))
+  total_payment <- data %>% 
+    group_by(DRG.Definition) %>% 
+    summarise(mean = mean(Average.Total.Payments))
+  covered_charges <- data %>% 
+    group_by(DRG.Definition) %>% 
+    summarise(mean = mean(Average.Covered.Charges))
   
   
   # Check which category the user wants to plot
   if (output_type == "medicare"){
     
     # Plot it
-    p <- ggplot(medicare, aes(x=DRG.Definition, y=mean)) + geom_boxplot() + xlab("DRG Codes") + ylab("Average Medicare Payment (in dollars)") + ggtitle("Average Medicare Payment by DRG Code")
+    p <- ggplot(medicare, 
+                aes(x=DRG.Definition, y=mean)) + 
+      geom_boxplot() + 
+      xlab("DRG Codes") + 
+      ylab("Average Medicare Payment (in dollars)") + 
+      ggtitle("Average Medicare Payment by DRG Code")
     print(p)
   }
   else if (output_type == "total_payment"){
-    p <- ggplot(total_payment, aes(x=DRG.Definition, y=mean)) + geom_boxplot() + xlab("DRG Codes") + ylab("Average Total Payment (in dollars)") + ggtitle("Average Total Payment by DRG Code")
+    p <- ggplot(total_payment, 
+                aes(x=DRG.Definition, y=mean)) + 
+      geom_boxplot() + 
+      xlab("DRG Codes") + 
+      ylab("Average Total Payment (in dollars)") + 
+      ggtitle("Average Total Payment by DRG Code")
     print(p)
   }
   else{
-    p <- ggplot(covered_charges, aes(x=DRG.Definition, y=mean)) + geom_boxplot() + xlab("DRG Codes") + ylab("Average Covered Charges (in dollars)") + ggtitle("Average Covered Charges by DRG Code")
+    p <- ggplot(covered_charges, 
+                aes(x=DRG.Definition, y=mean)) + 
+      geom_boxplot() + 
+      xlab("DRG Codes") + 
+      ylab("Average Covered Charges (in dollars)") + 
+      ggtitle("Average Covered Charges by DRG Code")
     print(p)
   }
   
