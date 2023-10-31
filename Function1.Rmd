@@ -94,14 +94,16 @@ f2 <- function(data,statistics){
     group_by(DRG.Definition) %>%
     summarise(Mean = mean(Average.Medicare.Payments),
               Medium = median(Average.Medicare.Payments),
-              Standard_deviation  = sd(Average.Medicare.Payments))
+              Standard_Deviation  = sd(Average.Medicare.Payments))
   #  Replace (.) with spaces 
-  colnames(da1) <- gsub("\\.", " ", colnames(da1)) 
+  colnames(da1) <- gsub("\\.", " ", colnames(da1))
+  colnames(da1) <- gsub("\\_", " ", colnames(da1))
   # return the statistics that we choose
   output2 <- knitr::kable(da1[,c(1,i)])
   return(output2)
 }
 ```
+
 
 
 
