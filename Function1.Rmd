@@ -79,9 +79,9 @@ payment <- function(output_type)
   
 }
 
-## Define the function 2
+# Define the function 2
 f2 <- function(data,statistics){
-  ## Assign different number to indicate the location of the statistics
+  # Assign different number to indicate the location of the statistics
   if(statistics == "mean"){
     i <- 2
   }else if(statistics == "medium"){
@@ -90,12 +90,18 @@ f2 <- function(data,statistics){
     i <- 4
   }
   da1 <- data %>%
-    ## Calculate the mean, medium, and standard deviation of each group
+    # Calculate the mean, medium, and standard deviation of each group
     group_by(DRG.Definition) %>%
-    summarise(mean = mean(Average.Medicare.Payments),
-              medium = median(Average.Medicare.Payments),
-              standard_deviation  = sd(Average.Medicare.Payments))
-  ## return the statistics that we choose  
-  return(da1[,c(1,i)])
+    summarise(Mean = mean(Average.Medicare.Payments),
+              Medium = median(Average.Medicare.Payments),
+              Standard_deviation  = sd(Average.Medicare.Payments))
+  #  Replace (.) with spaces 
+  colnames(da1) <- gsub("\\.", " ", colnames(da1)) 
+  # return the statistics that we choose
+  output2 <- knitr::kable(da1[,c(1,i)])
+  return(output2)
 }
 ```
+
+
+
