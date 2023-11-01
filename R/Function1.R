@@ -13,7 +13,8 @@ data <- read.csv("data/DRG_data.csv")
 #' This function makes a boxplot of payments by DRG code for either the average
 #' Medicare payments, the average total payment, or the average covered charges.
 #'
-#' @param output_type a string that determines what category the plot is of
+#' @param output_type a string that can take values - medicare, total_payment
+#' and covered_charges
 #'
 #' @return A boxplot for payments by DRG code
 #' @export

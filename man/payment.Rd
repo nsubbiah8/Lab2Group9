@@ -8,7 +8,8 @@ Medicare payments, the average total payment, or the average covered charges.}
 payment(output_type)
 }
 \arguments{
-\item{output_type}{a string that determines what category the plot is of}
+\item{output_type}{a string that can take values - medicare, total_payment
+and covered_charges}
 }
 \value{
 A boxplot for payments by DRG code
