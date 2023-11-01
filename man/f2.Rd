@@ -8,7 +8,8 @@ codes. over all of the DRG codes for average Medicare payments}
 f2(statistics)
 }
 \arguments{
-\item{statistics}{is a string which specifies what statistic is needed}
+\item{statistics}{is a string which specifies the statistic and can take
+values - mean, medium and standard deviation}
 }
 \value{
 returns the chosen statistic calculated
