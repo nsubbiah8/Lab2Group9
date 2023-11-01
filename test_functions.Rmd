@@ -1,11 +1,13 @@
 
-```{r}
+```{r, message = FALSE}
 #load libraries
 library(document)
+library(dplyr)
+library(ggplot2)
 library(roxygen2)
 ```
 
-```{r}
+```{r, message = FALSE }
 devtools::install_github('nsubbiah8/Lab2Group9', auth_token = "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")
 ```
 
