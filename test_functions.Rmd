@@ -1,3 +1,13 @@
+---
+title: "Lab2 Group 9"
+author: "Congrui Li, Kopal Sharma, Nandita Subbiah"
+date: "Due on 11/01/2023"
+output: html_document
+---
+
+<https://github.com/nsubbiah8/Lab2Group9>.
+
+## Lab #2: Making an R Package
 
 ```{r, message = FALSE}
 #load libraries
@@ -7,7 +17,7 @@ library(ggplot2)
 library(roxygen2)
 ```
 
-```{r, message = FALSE }
+```{r, message = FALSE}
 devtools::install_github('nsubbiah8/Lab2Group9', auth_token = "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")
 
 ```
