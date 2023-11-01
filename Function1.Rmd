@@ -22,7 +22,7 @@ library(ggplot2)
 library(tidyverse)
 
 # Read in data to dataframe
-data <- read.csv("/Users/nandita/Desktop/DataScience/Lab2Group9/Lab2Group9/data/DRG_data.csv")
+data <- read.csv("data/DRG_data.csv")
 ```
 
 ```{r}
@@ -78,6 +78,11 @@ payment <- function(output_type)
   
   
 }
+
+```
+
+
+```{r}
 
 # Define the function 2
 f2 <- function(data,statistics){
