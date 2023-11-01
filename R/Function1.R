@@ -20,7 +20,7 @@ data <- read.csv("data/DRG_data.csv")
 #' @export
 #'
 #' @importFrom ggplot2 ggplot
-#' @importFrom dplyr %>%
+#' @importFrom magrittr %>%
 #' @importFrom dplyr group_by
 #' @importFrom tidyverse summarise
 #'
@@ -89,7 +89,7 @@ payment <- function(output_type)
 #' @return returns the chosen statistic calculated
 #' @export
 #'
-#' @importFrom dplyr %>%
+#' @importFrom magrittr %>%
 #' @importFrom dplyr group_by
 #' @importFrom tidyverse summarise
 #'
